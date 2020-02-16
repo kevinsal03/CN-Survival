@@ -1,0 +1,6 @@
+name: CN-Survival
+main: me.kevsal.minecraft.cnsurvival.CNSurvival
+version: ${project.version}
+author: Kevinjss1/Kevinsal03
+api-version: 1.14
+description: ClubSurvival custom features plugin.

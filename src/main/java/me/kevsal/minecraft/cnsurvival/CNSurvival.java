@@ -7,6 +7,7 @@ public class CNSurvival extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        getLogger().info("Registering Events");
         Bukkit.getPluginManager().registerEvents(new EventPlayerDamage(), this);
     }
 
