@@ -13,15 +13,17 @@ public class EventPlayerDamage implements Listener {
     public void onPlayerDamageEvent(EntityDamageEvent e) {
         if (e.getEntity() instanceof Player) {
             Player p = (Player) e.getEntity();
-            if (p.getAllowFlight()) {
-                if(p.isFlying()) {
-                    Location safePlayerLoc = p.getLocation();
-                    safePlayerLoc.setY(p.getWorld().getHighestBlockAt(p.getLocation()).getY());
-                    p.teleport(safePlayerLoc);
+            if (!p.hasPermission("cn.mode.peaceful")) {
+                if (p.getAllowFlight()) {
+                    if(p.isFlying()) {
+                        Location safePlayerLoc = p.getLocation();
+                        safePlayerLoc.setY(p.getWorld().getHighestBlockAt(p.getLocation()).getY());
+                        p.teleport(safePlayerLoc);
+                    }
+                    p.setFlying(false);
+                    p.setAllowFlight(false);
+                    p.sendMessage("" + ChatColor.DARK_RED + ChatColor.BOLD + "ClubSurvival> " + ChatColor.RED + "Your fly was automatically disabled because you took damage!");
                 }
-                p.setFlying(false);
-                p.setAllowFlight(false);
-                p.sendMessage("" + ChatColor.DARK_RED + ChatColor.BOLD + "ClubSurvival> " + ChatColor.RED + "Your fly was automatically disabled because you took damage!");
             }
         }
     }
