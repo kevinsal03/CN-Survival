@@ -13,7 +13,7 @@ public class EventPlayerDamage implements Listener {
     public void onPlayerDamageEvent(EntityDamageEvent e) {
         if (e.getEntity() instanceof Player) {
             Player p = (Player) e.getEntity();
-            if (!p.hasPermission("cn.mode.peaceful")) {
+            if (!p.hasPermission("cs.mode.peaceful")) {
                 if (p.getAllowFlight()) {
                     if(p.isFlying()) {
                         Location safePlayerLoc = p.getLocation();

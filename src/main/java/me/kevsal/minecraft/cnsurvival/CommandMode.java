@@ -22,8 +22,9 @@ public class CommandMode implements CommandExecutor {
             if(args.length != 1) {
                 p.sendMessage(ChatColor.RED + "/mode <menu, PEACEFUL, NOPVP, NORMAL>");
             } else {
-                if(args[0] == "menu") {
+                if(args[0].equals("menu")) {
                     //TODO: Open menu
+                    p.openInventory(ModeMenu.modeMenu);
                 } else {
                     if (args[0].equals("PEACEFUL") | args[0].equals("NOPVP") | args[0].equals("NORMAL")) {
                         ModeController.switchMode(plugin, p, PlayerMode.valueOf(args[0]));

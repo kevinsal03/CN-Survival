@@ -4,3 +4,7 @@ version: ${project.version}
 author: Kevinjss1/Kevinsal03
 api-version: 1.14
 description: ClubSurvival custom features plugin.
+commands:
+  mode:
+    description: Change player mode
+    usage: /<command> <mode/menu>

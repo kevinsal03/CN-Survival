@@ -17,9 +17,10 @@ public class EventPlayerMove implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e) {
         Player p = e.getPlayer();
-        if(ModeController.getMode(plugin, p) == PlayerMode.NORMAL) {
+        if(ModeController.getMode(plugin, p) == PlayerMode.NONE) {
             p.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "You must select a mode to be able to move!");
             p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "Do /mode menu for help!");
+            p.openInventory(ModeMenu.modeMenu);
             e.setCancelled(true);
         }
     }
